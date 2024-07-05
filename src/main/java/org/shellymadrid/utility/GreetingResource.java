@@ -16,6 +16,8 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String greet() {
-        return greetingService.greet("World");
+        //return greetingService.greet("World");
+        return "{\"message\":\"Hello from Quarkus!\"}";
+
     }
 }
