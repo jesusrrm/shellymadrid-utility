@@ -1,23 +1,27 @@
 [
-    {
-      "id": 1,
-      "name": "Comprar",
-      "url": "https://shellymadrid.com/"
-    },
-    {
-      "id": 2,
-      "name": "About",
-      "url": "/api/content/about"
-    },
-    {
-      "id": 3,
-      "name": "Services",
-      "url": "/api/content/services"
-    },
-    {
-      "id": 4,
-      "name": "Contact",
-      "url": "/api/content/contact"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "Comprar",
+    "url": "/sm/",
+    "proxy": "/sm"
+
+  },
+  {
+    "id": 2,
+    "name": "About",
+    "url": "/api/greeting",
+    "proxy": "/api"
+  },
+  {
+    "id": 3,
+    "name": "Services",
+    "url": "/another-api/content/services",
+    "proxy": "/another-api"
+  },
+  {
+    "id": 4,
+    "name": "Contact",
+    "url": "/another-api/content/contact",
+    "proxy": "/another-api"
+  }
+]
