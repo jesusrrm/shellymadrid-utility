@@ -1,42 +1,41 @@
-// src/components/Menu.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../css/Menu.css';
 
-interface MenuItem {
-  id: number;
-  name: string;
-  url: string;
-}
+type MenuItem = {
+    name: string;
+    path: string;
+};
 
-interface MenuProps {
-  onMenuItemClick: (item: MenuItem) => void;
-}
+const menuItems: MenuItem[] = [
+    { name: 'Home', path: '/' },
+    { name: 'Who We Are', path: '/who-we-are' },
+    { name: 'Contact Info', path: '/contact-info' }
+];
 
-const Menu: React.FC<MenuProps> = ({ onMenuItemClick }) => {
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+const Menu: React.FC = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    fetch('/menuData.json') // replace with your menu endpoint
-      .then(response => response.json())
-      .then(data => setMenuItems(data))
-      .catch(error => console.error('Error fetching menu:', error));
-  }, []);
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
-  return (
-    <div className="bg-light border-right" id="sidebar-wrapper">
-      <div className="sidebar-heading">Menu</div>
-      <div className="list-group list-group-flush">
-        {menuItems.map(item => (
-          <button
-            key={item.id}
-            className="list-group-item list-group-item-action bg-light"
-            onClick={() => onMenuItemClick(item)}
-          >
-            {item.name}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
+    return (
+        <div className="menu-container">
+            <div className="menu-toggle" onClick={toggleMenu}>
+                &#9776;
+            </div>
+            <nav className={`menu ${isOpen ? 'open' : ''}`}>
+                <ul>
+                    {menuItems.map((item, index) => (
+                        <li key={index}>
+                            <Link to={item.path} onClick={toggleMenu}>{item.name}</Link>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </div>
+    );
 };
 
 export default Menu;

@@ -1,31 +1,30 @@
-// src/App.tsx
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Banner from './components/Banner';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import WhoWeAre from './components/WhoWeAre';
+import ContactInfo from './components/ContactInfo';
 import Menu from './components/Menu';
-import Content from './components/Content';
+import TopBanner from './components/TopBanner';
+import './App.css';
 
 const App: React.FC = () => {
-  const [contentUrl, setContentUrl] = useState<string | null>(null);
-
-  const handleMenuItemClick = (item: { url: string }) => {
-    setContentUrl(item.url);
-  };
-
-  return (
-    <div>
-      <Banner />
-      <div className="d-flex" id="wrapper">
-        <Menu onMenuItemClick={handleMenuItemClick} />
-        <div id="page-content-wrapper">
-          <div className="container-fluid">
-            <Content url={contentUrl} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <TopBanner />
+                <div className="main-content">
+                    <Menu />
+                    <div className="content">
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/who-we-are" element={<WhoWeAre />} />
+                            <Route path="/contact-info" element={<ContactInfo />} />
+                        </Routes>
+                    </div>
+                </div>
+            </div>
+        </Router>
+    );
 };
 
 export default App;
