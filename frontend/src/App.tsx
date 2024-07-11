@@ -6,6 +6,7 @@ import ContactInfo from './components/ContactInfo';
 import Menu from './components/Menu';
 import TopBanner from './components/TopBanner';
 import './App.css';
+import BatteryStatus from './components/BatteryStatus';
 
 const App: React.FC = () => {
     return (
@@ -19,6 +20,8 @@ const App: React.FC = () => {
                             <Route path="/" element={<Home />} />
                             <Route path="/who-we-are" element={<WhoWeAre />} />
                             <Route path="/contact-info" element={<ContactInfo />} />
+                            <Route path="/battery-status"  element={<BatteryStatus apiUrl={''} />} />
+
                         </Routes>
                     </div>
                 </div>

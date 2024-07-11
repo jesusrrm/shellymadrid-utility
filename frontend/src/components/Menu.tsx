@@ -8,9 +8,15 @@ type MenuItem = {
 };
 
 const menuItems: MenuItem[] = [
-    { name: 'Home', path: '/' },
-    { name: 'Who We Are', path: '/who-we-are' },
-    { name: 'Contact Info', path: '/contact-info' }
+    { name: 'Inicio', path: '/' },
+    { name: 'Quién es ShellyMadrid', path: '/who-we-are' },
+    { name: 'Información de contacto', path: '/contact-info' },
+    { name: 'Control de batería de laptop', path: '/battery-status' },
+    { name: 'Dispositivos Shelly por configurar', path: '/battery-status' },
+    { name: 'Cambio de cuenta cloud de equipos Shelly', path: '/battery-status' } 
+
+
+
 ];
 
 const Menu: React.FC = () => {
