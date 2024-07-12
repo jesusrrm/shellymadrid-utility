@@ -1,4 +1,6 @@
-package org.shellymadrid.utility.service;
+package org.shellymadrid.utility.service.implementation;
+
+import org.shellymadrid.utility.service.GreetingServiceInterface;
 
 import jakarta.enterprise.context.ApplicationScoped;
 
