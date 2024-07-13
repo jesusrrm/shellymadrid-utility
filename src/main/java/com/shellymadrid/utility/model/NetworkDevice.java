@@ -4,12 +4,53 @@ import com.shellymadrid.utility.model.devices.common.ShellyGetDeviceInfo;
 
 public class NetworkDevice {
     private String ipAddress;
+    private String hostname;
+    private String name;
+    private String model;
+    private String device;
+    private String version;
     private ShellyGetDeviceInfo shellyGetDeviceInfo;
-    
+
     public NetworkDevice(String ipAddress, ShellyGetDeviceInfo shellyGetDeviceInfo) {
         this.ipAddress = ipAddress;
         this.shellyGetDeviceInfo = shellyGetDeviceInfo;
         this.hostname = shellyGetDeviceInfo.getId();
+        this.name = shellyGetDeviceInfo.getName();
+        this.model = shellyGetDeviceInfo.getModel();
+        this.device = shellyGetDeviceInfo.getApp();
+        this.version = shellyGetDeviceInfo.getVer();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getDevice() {
+        return device;
+    }
+
+    public void setDevice(String device) {
+        this.device = device;
     }
 
     public ShellyGetDeviceInfo getShellyGetDeviceInfo() {
@@ -27,8 +68,6 @@ public class NetworkDevice {
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
     }
-
-    private String hostname;
 
     public String getHostname() {
         return hostname;
@@ -73,6 +112,5 @@ public class NetworkDevice {
             return false;
         return true;
     }
-
 
 }
