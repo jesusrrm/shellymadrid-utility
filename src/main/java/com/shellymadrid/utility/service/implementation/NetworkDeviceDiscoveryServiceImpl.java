@@ -30,12 +30,12 @@ public class NetworkDeviceDiscoveryServiceImpl implements NetworkDeviceDiscovery
 
     private static final int THREAD_POOL_SIZE = 512;
     private static final int TASK_TIMEOUT_MILISECONDS = 410;
+    private static Set<NetworkDevice> networkDevices = new HashSet<>();
 
     @Override
     public Set<NetworkDevice> discoverNetworkDevices(String baseIp) {
-        Set<NetworkDevice> successfulIPs = new HashSet<>();
         ExecutorService executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-
+        networkDevices = new HashSet<>();
         List<Callable<ResponseWithIp>> tasks = new ArrayList<>();
         for (int i = 1; i < 256; i++) {
             final String ipAddress = "http://" + baseIp + "." + i;
@@ -76,28 +76,27 @@ public class NetworkDeviceDiscoveryServiceImpl implements NetworkDeviceDiscovery
                         // Create an ObjectMapper instance
                         ObjectMapper objectMapper = new ObjectMapper();
 
-                       
-                            // Deserialize JSON string to Object11
-                            ShellyGetDeviceInfo shellyGetDeviceInfo = objectMapper.readValue(jsonString,  ShellyGetDeviceInfo.class);
+                        // Deserialize JSON string to Object11
+                        ShellyGetDeviceInfo shellyGetDeviceInfo = objectMapper.readValue(jsonString,
+                                ShellyGetDeviceInfo.class);
 
-                            
-                       
                         System.out.println("Se ha localizado un dispositivo Shelly: " + ip);
-                        synchronized (successfulIPs) {
-                            successfulIPs.add(new NetworkDevice(ip, shellyGetDeviceInfo));
+                        synchronized (networkDevices) {
+                            networkDevices.add(new NetworkDevice(ip, shellyGetDeviceInfo));
                         }
                     }
-   
-} catch (StreamReadException e) {
-    e.printStackTrace();
-} catch (DatabindException e) {e.printStackTrace();
-} catch (JsonProcessingException e) {
-    e.printStackTrace();
-} catch (TimeoutException e) {
 
-                //} catch (TimeoutException e) {
+                } catch (StreamReadException e) {
+                    e.printStackTrace();
+                } catch (DatabindException e) {
+                    e.printStackTrace();
+                } catch (JsonProcessingException e) {
+                    e.printStackTrace();
+                } catch (TimeoutException e) {
+
+                    // } catch (TimeoutException e) {
                 } catch (Exception e) {
-                    
+
                 }
             }
         } catch (InterruptedException e) {
@@ -115,7 +114,7 @@ public class NetworkDeviceDiscoveryServiceImpl implements NetworkDeviceDiscovery
             }
         }
 
-        return successfulIPs;
+        return networkDevices;
     }
 
     private final class ResponseWithIp {
@@ -135,5 +134,10 @@ public class NetworkDeviceDiscoveryServiceImpl implements NetworkDeviceDiscovery
             return ipAddress;
         }
 
+    }
+
+    @Override
+    public Set<NetworkDevice> getDiscoveredNetworkDevices() {
+        return networkDevices;
     }
 }
