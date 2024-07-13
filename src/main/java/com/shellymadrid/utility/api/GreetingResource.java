@@ -1,9 +1,9 @@
-package org.shellymadrid.utility.api;
+package com.shellymadrid.utility.api;
 
 
 /// Ojo usar JAKARTA
 
-import org.shellymadrid.utility.service.GreetingServiceInterface;
+import com.shellymadrid.utility.service.GreetingServiceInterface;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

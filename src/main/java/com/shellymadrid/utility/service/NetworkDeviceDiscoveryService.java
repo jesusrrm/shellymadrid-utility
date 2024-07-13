@@ -1,6 +1,6 @@
-package org.shellymadrid.utility.service;
+package com.shellymadrid.utility.service;
 
-import org.shellymadrid.utility.model.NetworkDevice;
+import com.shellymadrid.utility.model.NetworkDevice;
 
 import java.util.Set;
 

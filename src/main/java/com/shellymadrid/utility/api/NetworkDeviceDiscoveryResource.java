@@ -1,8 +1,8 @@
-package org.shellymadrid.utility.api;
+package com.shellymadrid.utility.api;
 
 
-import org.shellymadrid.utility.model.NetworkDevice;
-import org.shellymadrid.utility.service.NetworkDeviceDiscoveryService;
+import com.shellymadrid.utility.model.NetworkDevice;
+import com.shellymadrid.utility.service.NetworkDeviceDiscoveryService;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -13,7 +13,7 @@ import jakarta.ws.rs.core.MediaType;
 import java.util.Set;
 
 @Path("/discover")
-public class NetworkDeviceDiscoveryResource {
+public class NetworkDeviceDiscoveryResource {   
 
     @Inject
     NetworkDeviceDiscoveryService discoveryService;
