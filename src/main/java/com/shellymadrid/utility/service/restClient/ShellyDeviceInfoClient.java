@@ -1,6 +1,5 @@
 package com.shellymadrid.utility.service.restClient;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-import com.shellymadrid.utility.model.devices.Shelly1_1PM_G1;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
