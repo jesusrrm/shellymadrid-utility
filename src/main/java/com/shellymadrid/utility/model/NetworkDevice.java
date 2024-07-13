@@ -1,13 +1,15 @@
 package com.shellymadrid.utility.model;
 
 import com.shellymadrid.utility.model.devices.common.ShellyGetDeviceInfo;
+import com.shellymadrid.utility.service.Constants;
+import com.shellymadrid.utility.service.Constants.ShellyDevice;
 
 public class NetworkDevice {
     private String ipAddress;
     private String hostname;
     private String name;
     private String model;
-    private String device;
+    private ShellyDevice device;
     private String version;
     private ShellyGetDeviceInfo shellyGetDeviceInfo;
 
@@ -17,8 +19,9 @@ public class NetworkDevice {
         this.hostname = shellyGetDeviceInfo.getId();
         this.name = shellyGetDeviceInfo.getName();
         this.model = shellyGetDeviceInfo.getModel();
-        this.device = shellyGetDeviceInfo.getApp();
+        this.device = Constants.fromString(shellyGetDeviceInfo.getApp()) ;
         this.version = shellyGetDeviceInfo.getVer();
+        
     }
 
     public String getName() {
@@ -45,11 +48,11 @@ public class NetworkDevice {
         this.model = model;
     }
 
-    public String getDevice() {
+    public ShellyDevice getDevice() {
         return device;
     }
 
-    public void setDevice(String device) {
+    public void setDevice(ShellyDevice device) {
         this.device = device;
     }
 

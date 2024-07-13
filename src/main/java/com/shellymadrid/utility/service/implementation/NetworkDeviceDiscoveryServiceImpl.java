@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shellymadrid.utility.model.NetworkDevice;
 import com.shellymadrid.utility.model.devices.common.ShellyGetDeviceInfo;
 import com.shellymadrid.utility.service.NetworkDeviceDiscoveryService;
-import com.shellymadrid.utility.service.restClient.NetworkDeviceClient;
+import com.shellymadrid.utility.service.restClient.ShellyDeviceInfoClient;
 
 import io.quarkus.rest.client.reactive.QuarkusRestClientBuilder;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -42,9 +42,9 @@ public class NetworkDeviceDiscoveryServiceImpl implements NetworkDeviceDiscovery
 
             System.out.println("Starting task for: " + ipAddress);
 
-            final NetworkDeviceClient client = QuarkusRestClientBuilder.newBuilder()
+            final ShellyDeviceInfoClient client = QuarkusRestClientBuilder.newBuilder()
                     .baseUri(URI.create(ipAddress))
-                    .build(NetworkDeviceClient.class);
+                    .build(ShellyDeviceInfoClient.class);
 
             Callable<ResponseWithIp> taskG1 = () -> {
                 Response response = client.getDeviceInfoG1();
