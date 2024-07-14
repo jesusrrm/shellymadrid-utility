@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/Menu.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/globalStyles.css'; // Import the global styles
 
 type MenuItem = {
     name: string;
@@ -12,11 +13,8 @@ const menuItems: MenuItem[] = [
     { name: 'Quién es ShellyMadrid', path: '/who-we-are' },
     { name: 'Información de contacto', path: '/contact-info' },
     { name: 'Control de batería de laptop', path: '/battery-status' },
-    { name: 'Dispositivos Shelly por configurar', path: '/battery-status' },
-    { name: 'Cambio de cuenta cloud de equipos Shelly', path: '/battery-status' } 
-
-
-
+    { name: 'Dispositivos Shelly por configurar', path: '/devices-to-configure' },
+    { name: 'Cambio de cuenta cloud de equipos Shelly', path: '/change-cloud-account' }
 ];
 
 const Menu: React.FC = () => {
@@ -27,20 +25,22 @@ const Menu: React.FC = () => {
     };
 
     return (
-        <div className="menu-container">
-            <div className="menu-toggle" onClick={toggleMenu}>
-                &#9776;
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container left" >
+                <button className="navbar-toggler" type="button" onClick={toggleMenu}>
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
+                    <ul className="navbar-nav flex-column">
+                        {menuItems.map((item, index) => (
+                            <li className="nav-item" key={index}>
+                                <Link to={item.path} className="nav-link" onClick={toggleMenu}>{item.name}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
-            <nav className={`menu ${isOpen ? 'open' : ''}`}>
-                <ul>
-                    {menuItems.map((item, index) => (
-                        <li key={index}>
-                            <Link to={item.path} onClick={toggleMenu}>{item.name}</Link>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
-        </div>
+        </nav>
     );
 };
 

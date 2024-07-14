@@ -53,7 +53,7 @@ p {
 
 .navbar-nav {
     flex-direction: column; /* Display items vertically */
-    align-items: flex-end; /* Align items to the right */
+    text-align: left;
 }
 
 .nav-item {
