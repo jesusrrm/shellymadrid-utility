@@ -12,7 +12,7 @@ import jakarta.ws.rs.core.MediaType;
 import java.util.Set;
 
 @Path("/devices")
-public class DeviceResource {
+public class DevicesCtl {
 
     @Inject
     NetworkDeviceDiscoveryService discoveryService;

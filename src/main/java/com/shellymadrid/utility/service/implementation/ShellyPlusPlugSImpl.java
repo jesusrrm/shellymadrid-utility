@@ -4,8 +4,6 @@ import com.shellymadrid.utility.service.restClient.ShellyPlusPlugS_G2;
 import io.quarkus.rest.client.reactive.QuarkusRestClientBuilder;
 import jakarta.enterprise.context.ApplicationScoped;
 import java.net.URI;
-
-import com.shellymadrid.utility.model.DeviceWifi;
 import com.shellymadrid.utility.service.devices.ShellyPlusPlugSService;
 
 @ApplicationScoped
@@ -66,18 +64,6 @@ public class ShellyPlusPlugSImpl implements ShellyPlusPlugSService {
     public DeviceStatus getStatus(String ip) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getStatus'");
-    }
-
-    @Override
-    public DeviceWifi getWifi(String ip) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getWifi'");
-    }
-
-    @Override
-    public void setWifi(DeviceWifi deviceWifi) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setWifi'");
     }
 
     @Override

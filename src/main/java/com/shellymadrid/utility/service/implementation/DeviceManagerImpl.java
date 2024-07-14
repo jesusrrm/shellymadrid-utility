@@ -4,6 +4,7 @@ import com.shellymadrid.utility.model.DeviceWifi;
 import com.shellymadrid.utility.service.DeviceManagerService;
 import com.shellymadrid.utility.service.devices.ChannelControlService;
 import com.shellymadrid.utility.service.devices.DeviceService;
+import com.shellymadrid.utility.service.devices.WifiService;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class DeviceManagerImpl implements DeviceManagerService {
     @Override
     public void turnOnCahnnel1AllDevices() {
         for (DeviceService device : devices) {
+
             if (device instanceof ChannelControlService) {
                 ((ChannelControlService) device).turnOnChannel1("");
 
@@ -91,7 +93,8 @@ public class DeviceManagerImpl implements DeviceManagerService {
     public void setWifi(String ssid, String password) {
 
         for (DeviceService device : devices) {
-            device.setWifi(new DeviceWifi(ssid, password));
+            if (device instanceof WifiService)
+                ((WifiService) device).setWifi(new DeviceWifi(ssid, password));
             System.out.println(device.getStatus(""));
         }
     }
@@ -100,12 +103,15 @@ public class DeviceManagerImpl implements DeviceManagerService {
     public void setWifi(String ssid, String password, int rangeBegin, int rangeEnds) {
 
         for (DeviceService device : devices) {
-            if (rangeBegin <= rangeEnds) {
-                String[] octeto = device.getWifi("").getStaticIp().split(".");
-                DeviceWifi deviceWifi = new DeviceWifi(ssid, password,
-                        octeto[0] + "." + octeto[1] + "." + octeto[2] + "." + (rangeBegin++));
-                device.setWifi(deviceWifi);
-                System.out.println(device.getStatus(""));
+            if (device instanceof WifiService) {
+                WifiService device0 = ((WifiService) device);
+                if (rangeBegin <= rangeEnds) {
+                    String[] octeto = device0.getWifi("").getStaticIp().split(".");
+                    DeviceWifi deviceWifi = new DeviceWifi(ssid, password,
+                            octeto[0] + "." + octeto[1] + "." + octeto[2] + "." + (rangeBegin++));
+                    device0.setWifi(deviceWifi);
+                    System.out.println(device.getStatus(""));
+                }
             }
         }
     }
