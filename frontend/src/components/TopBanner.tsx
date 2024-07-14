@@ -4,8 +4,8 @@ import '../css/globalStyles.css';
 const TopBanner: React.FC = () => {
     return (
         <div className="top-banner">
-            <h2>Bienvenido a la herramienta para instaladores creado por ShellyMadrid.com</h2>
-            <h2>Pensando en lo mejor para tí</h2>
+            <h2>Herramienta para instaladores creada por <b>ShellyMadrid.com</b></h2>
+            <h2>Pensando en lo mejor para ti.</h2>
         </div>
     );
 };
