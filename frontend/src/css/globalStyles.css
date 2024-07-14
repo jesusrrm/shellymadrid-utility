@@ -1,0 +1,78 @@
+/* globalStyles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #007bff;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+}
+
+/* Menu styles */
+.navbar {
+    background-color: #f7f7f7; /* Navbar background color */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Example box shadow */
+}
+
+.navbar-brand {
+    color: #007bff; /* Brand text color */
+    font-weight: bold; /* Example font weight */
+}
+
+.navbar-nav {
+    flex-direction: column; /* Display items vertically */
+    align-items: flex-end; /* Align items to the right */
+}
+
+.nav-item {
+    transition: background-color 0.3s ease; /* Example transition effect */
+    border-bottom: 1px solid #ddd; /* Example border between items */
+}
+
+.nav-item:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #007bff; /* Link text color */
+    display: block; /* Full width link */
+    padding: 10px 15px; /* Adjust padding as needed */
+}
+
+.nav-link:hover {
+    text-decoration: underline; /* Underline on hover */
+    background-color: #e9ecef; /* Example background color change on hover */
+}

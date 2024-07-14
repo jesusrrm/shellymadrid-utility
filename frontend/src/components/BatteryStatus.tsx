@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../css/BatteryStatus.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface BatteryStatusProps {
     apiUrl: string;
@@ -44,33 +43,37 @@ const BatteryStatus: React.FC<BatteryStatusProps> = ({ apiUrl }) => {
     };
 
     return (
-        <div className="battery-status">
-            <h2>Battery Status</h2>
+        <div className="container mt-4 p-4 border rounded shadow-sm bg-white">
+            <h2 className="mb-4">Battery Status</h2>
             {error ? (
-                <p className="error">{error}</p>
+                <div className="alert alert-danger">{error}</div>
             ) : batteryLevel !== null ? (
-                <p>Current Battery Level: {batteryLevel}%</p>
+                <div className="alert alert-info">Current Battery Level: {batteryLevel}%</div>
             ) : (
-                <p>Loading...</p>
+                <div className="alert alert-secondary">Loading...</div>
             )}
             <div className="settings">
-                <div className="setting">
-                    <label>Relay Off Threshold (%):</label>
+                <div className="form-group">
+                    <label htmlFor="relayOffThreshold">Relay Off Threshold (%):</label>
                     <input
+                        id="relayOffThreshold"
+                        className="form-control"
                         type="number"
                         value={relayOffThreshold}
                         onChange={handleRelayOffThresholdChange}
                     />
                 </div>
-                <div className="setting">
-                    <label>Relay On Threshold (%):</label>
+                <div className="form-group">
+                    <label htmlFor="relayOnThreshold">Relay On Threshold (%):</label>
                     <input
+                        id="relayOnThreshold"
+                        className="form-control"
                         type="number"
                         value={relayOnThreshold}
                         onChange={handleRelayOnThresholdChange}
                     />
                 </div>
-                <button onClick={handleSaveSettings}>Save Settings</button>
+                <button className="btn btn-primary" onClick={handleSaveSettings}>Save Settings</button>
             </div>
         </div>
     );

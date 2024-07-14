@@ -1,4 +1,6 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import WhoWeAre from './components/WhoWeAre';
@@ -7,6 +9,8 @@ import Menu from './components/Menu';
 import TopBanner from './components/TopBanner';
 import './App.css';
 import BatteryStatus from './components/BatteryStatus';
+import Devices from './components/Devices';
+
 
 const App: React.FC = () => {
     return (
@@ -17,7 +21,8 @@ const App: React.FC = () => {
                     <Menu />
                     <div className="content">
                         <Routes>
-                            <Route path="/" element={<Home />} />
+                            <Route path="/" element={<Devices />} />
+
                             <Route path="/who-we-are" element={<WhoWeAre />} />
                             <Route path="/contact-info" element={<ContactInfo />} />
                             <Route path="/battery-status"  element={<BatteryStatus apiUrl={''} />} />

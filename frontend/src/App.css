@@ -1,3 +1,5 @@
+/* App.css */
+
 .App {
   text-align: center;
   font-family: Arial, sans-serif;
@@ -41,3 +43,6 @@
       padding: 10px;
   }
 }
+
+/* Importing global styles */
+@import url('./css/globalStyles.css');
