@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DeviceDetailsModal from './DeviceDetailsModal';
+import '../css/globalStyles.css'; // Import the global styles
+
 
 interface ShellyDevice {
     id: string;

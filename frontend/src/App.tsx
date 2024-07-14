@@ -1,5 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/globalStyles.css';
+
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
@@ -7,7 +9,6 @@ import WhoWeAre from './components/WhoWeAre';
 import ContactInfo from './components/ContactInfo';
 import Menu from './components/Menu';
 import TopBanner from './components/TopBanner';
-import './App.css';
 import BatteryStatus from './components/BatteryStatus';
 import Devices from './components/Devices';
 

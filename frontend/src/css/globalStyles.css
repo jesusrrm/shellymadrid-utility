@@ -1,5 +1,3 @@
-/* globalStyles.css */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -15,9 +13,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2, h3 {
-    color: #007bff;
-}
+
 
 p {
     line-height: 1.6;
@@ -54,6 +50,7 @@ p {
 .navbar-nav {
     flex-direction: column; /* Display items vertically */
     text-align: left;
+    width: 100%; /* Ensure it takes full width */
 }
 
 .nav-item {
@@ -75,4 +72,61 @@ p {
 .nav-link:hover {
     text-decoration: underline; /* Underline on hover */
     background-color: #e9ecef; /* Example background color change on hover */
+}
+
+.top-banner {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+}
+
+.App {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu {
+    flex: 0 0 200px;
+    background: #f7f7f7;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .content {
+        padding: 10px;
+    }
 }
